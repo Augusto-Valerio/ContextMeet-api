@@ -1,23 +1,23 @@
 package br.com.fiap.contextmeet.entities;
 
-public class FuncionarioTOTVS {
+public class FuncionarioTotvs {
     private int idFuncionario;
     private int idUsuario;
     private String nome;
     private String email;
     private String cargo;
 
-    public FuncionarioTOTVS() {
+    public FuncionarioTotvs() {
     }
 
-    public FuncionarioTOTVS(int idUsuario, String nome, String email, String cargo) {
+    public FuncionarioTotvs(int idUsuario, String nome, String email, String cargo) {
         this.idUsuario = idUsuario;
         this.nome = nome;
         this.email = email;
         this.cargo = cargo;
     }
 
-    public FuncionarioTOTVS(int idFuncionario, int idUsuario, String nome, String email, String cargo) {
+    public FuncionarioTotvs(int idFuncionario, int idUsuario, String nome, String email, String cargo) {
         this.idFuncionario = idFuncionario;
         this.idUsuario = idUsuario;
         this.nome = nome;
