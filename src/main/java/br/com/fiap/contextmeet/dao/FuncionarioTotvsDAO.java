@@ -96,7 +96,7 @@ public class FuncionarioTotvsDAO {
         return null;
     }
 
-    // Atualizar
+    // Update
     public boolean atualizar(FuncionarioTotvs funcionario) throws SQLException, ClassNotFoundException {
 
         String sql = "UPDATE FUNCIONARIO_TOTVS SET USER_ID = ?, NOME = ?, EMAIL = ?, CARGO = ? WHERE ID_FUNCIONARIO = ?";
@@ -113,9 +113,8 @@ public class FuncionarioTotvsDAO {
         }
     }
 
-    // Deletar
-    public boolean deletar(int idFuncionario)
-            throws SQLException, ClassNotFoundException {
+    // Delete
+    public boolean deletar(int idFuncionario) throws SQLException, ClassNotFoundException {
 
         String sql = "DELETE FROM FUNCIONARIO_TOTVS WHERE ID_FUNCIONARIO = ?";
 

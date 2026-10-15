@@ -78,8 +78,7 @@ public class UsuarioDAO {
     }
 
     // Buscar por e-mail
-    public Usuario buscarPorEmail(String email)
-            throws SQLException, ClassNotFoundException {
+    public Usuario buscarPorEmail(String email) throws SQLException, ClassNotFoundException {
 
         String sql = "SELECT USER_ID, USER_NAME, USER_EMAIL, USER_PASSWORD, USER_TYPE FROM USUARIO WHERE USER_EMAIL = ?";
 
@@ -99,11 +98,7 @@ public class UsuarioDAO {
 
     // Update
     public boolean atualizar(Usuario usuario) throws SQLException, ClassNotFoundException {
-        String sql = """
-                UPDATE USUARIO
-                SET USER_NAME = ?, USER_EMAIL = ?, USER_PASSWORD = ?, USER_TYPE = ?
-                WHERE USER_ID = ?
-                """;
+        String sql ="UPDATE USUARIO SET USER_NAME = ?, USER_EMAIL = ?, USER_PASSWORD = ?, USER_TYPE = ? WHERE USER_ID = ?";
 
         try (Connection conexao = new ConexaoFactory().conexao(); PreparedStatement stmt = conexao.prepareStatement(sql)) {
 

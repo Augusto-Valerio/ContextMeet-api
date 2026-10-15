@@ -6,14 +6,11 @@ import java.sql.SQLException;
 
 public class ConexaoFactory {
 
-    private final static String URL =
-            "jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl";
+    private final static String URL = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl";
 
-    private final static String USUARIO =
-            System.getenv("ORACLE_USUARIO");
+    private final static String USUARIO = System.getenv("ORACLE_USUARIO");
 
-    private final static String SENHA =
-            System.getenv("ORACLE_SENHA");
+    private final static String SENHA = System.getenv("ORACLE_SENHA");
 
     // Metodo de conexão com o banco de dados
     public Connection conexao() throws ClassNotFoundException, SQLException {
@@ -29,15 +26,11 @@ public class ConexaoFactory {
 
     private void validarCredenciais() {
         if (USUARIO == null || USUARIO.isBlank()) {
-            throw new IllegalStateException(
-                    "A variável ORACLE_USUARIO não foi configurada."
-            );
+            throw new IllegalStateException("A variável ORACLE_USUARIO não foi configurada.");
         }
 
         if (SENHA == null || SENHA.isBlank()) {
-            throw new IllegalStateException(
-                    "A variável ORACLE_SENHA não foi configurada."
-            );
+            throw new IllegalStateException("A variável ORACLE_SENHA não foi configurada.");
         }
     }
 }
