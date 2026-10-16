@@ -37,7 +37,6 @@ public class ReuniaoController {
     @PostMapping
     public ResponseEntity<Void> inserirRs(@RequestBody Reuniao reuniao) throws SQLException, ClassNotFoundException {
         int idReuniao = reuniaoBo.inserirBo(reuniao);
-
         URI location = URI.create("/reunioes/" + idReuniao);
 
         return ResponseEntity.created(location).build();
@@ -47,7 +46,6 @@ public class ReuniaoController {
     @PutMapping("/{idReuniao}")
     public ResponseEntity<Void> atualizarRs(@PathVariable int idReuniao, @RequestBody Reuniao reuniao) throws SQLException, ClassNotFoundException {
         reuniao.setIdReuniao(idReuniao);
-
         reuniaoBo.atualizarBo(reuniao);
 
         return ResponseEntity.ok().build();
