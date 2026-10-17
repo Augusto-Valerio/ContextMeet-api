@@ -120,6 +120,27 @@ public class UsuarioBo {
         return usuarioDAO.deletar(idUsuario);
     }
 
+    // Autenticar
+    public Usuario autenticarBo(String email, String senha) throws SQLException, ClassNotFoundException {
+
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+        validarEmail(email);
+        validarSenha(senha);
+
+        String emailNormalizado = email.trim().toLowerCase();
+
+        Usuario usuario = usuarioDAO.buscarPorEmail(emailNormalizado);
+
+        boolean credenciaisInvalidas = usuario == null || !usuario.getSenha().equals(senha);
+
+        if (credenciaisInvalidas) {
+            throw new IllegalArgumentException("E-mail ou senha inválidos.");
+        }
+
+        return usuario;
+    }
+
     // Regras de negócio
     private void validarUsuario(Usuario usuario) {
 
